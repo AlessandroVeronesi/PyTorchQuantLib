@@ -9,7 +9,7 @@ def replace_module(model, old_module, replacer, module_name = ''):
                 if hasattr(module, 'groups'):
                     if (module.groups > 1):
                         # Bypass DW layers
-                        replace_module(module, old_module, replacer, full_name)
+                        return model
                 # Instantiate the replacementV module
                 replacement = replacer(module, full_name)
                 setattr(model, name, replacement)
